@@ -463,7 +463,6 @@
   <block id="8e2044cc9d4e8f515ad4809a68d75465" category="paragraph">例如，对于 NFS ：</block>
   <block id="d39eb6e4299503c5d451d19b9645be42" category="paragraph">例如，对于 iSCSI ：</block>
   <block id="ea3d51fb2b16acb7cb260f25bc8965b1" category="summary">Astra Trident 是由 NetApp 维护的开源存储配置程序和流程编排程序。通过它，您可以为 Docker 和 Kubernetes 管理的容器化应用程序创建存储卷。</block>
-  <block id="b9baa6fa560066bf0c9e87d66d1c0664" category="doc">Astra Trident 22.01.1 文档</block>
   <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">法律声明</block>
   <block id="e9c44bbfd795a5d63d74c6a77afee70d" category="paragraph">法律声明提供对版权声明、商标、专利等的访问。</block>
   <block id="6016a2b341113bf496b719905398ecd2" category="section-title">版权</block>
@@ -3139,4 +3138,5 @@
   <block id="63d5049791d9d79d86e9a108b0a999ca" category="sidebar">参考</block>
   <block id="324fb1352ffffb105d10013810c42896" category="sidebar">Kubernetes 和 Astra Trident 对象</block>
   <block id="086e6c16e3fe8e13c336612ef636aa02" category="sidebar">Astra Trident</block>
+  <block id="80fa8f92dc0ebf122ed30a4a88fda343" category="doc">Astra Trident 22.01 文档</block>
 </blocks>
