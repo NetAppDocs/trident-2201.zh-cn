@@ -3142,4 +3142,5 @@
   <block id="de781ae8dbfd68aeef56f40c5dc767da" category="paragraph">Astra Trident应以`vsadmin` SVM用户或具有相同角色的其他名称的用户的身份运行。适用于NetApp ONTAP 的Amazon FSX具有一个`fsxadmin`用户、该用户是ONTAP `admin` cluster用户的有限替代。建议不要在Trident中使用`fsxadmin`用户、因为`vsadmin` SVM用户可以访问更多Astra Trident功能。</block>
   <block id="d5d195efeafde24a6a22effd3dd39339" category="list-text">基于凭据：您可以使用文件系统的 `fsxadmin` 用户或为 SVM 配置的 `vsadmin` 用户。</block>
   <block id="be5736bb27c63c0a404a25abaa033c45" category="admonition">我们强烈建议使用`vsadmin` user而非`fsxadmin`来配置后端。Astra Trident 将使用此用户名和密码与 FSX 文件系统进行通信。</block>
+  <block id="3f44baef815aed01560d6764fea49ebc" category="cell">用于CVS卷的GCP网络</block>
 </blocks>
