@@ -1285,7 +1285,6 @@
   <block id="e3f688f3aa653574b3253640aa98f47c" category="cell">在 SVM 中配置新卷时使用的前缀。设置后无法更新</block>
   <block id="a996d2f8e072c583d6cc26aa1e4aba87" category="cell">Trident</block>
   <block id="b6ea9c09f8ac215ea68be83cd0240aac" category="cell">如果使用量超过此百分比，则配置失败。* 不适用于适用于 ONTAP 的 Amazon FSx *</block>
-  <block id="c07510d6ca04643a0f81501d2407311b" category="cell">如果经济型驱动程序请求的卷大小超过此值，则配置失败。</block>
   <block id="9d96dfa28e7454a1119de523123a1e05" category="cell">" （默认情况下不强制实施）</block>
   <block id="c9a303edbc714d051896c3a678e59a8a" category="cell">`lunsPerFlexvol`</block>
   <block id="79892588cbecd0b88729ea1a55b2a3a4" category="cell">每个 FlexVol 的最大 LUN 数，必须在 50 ， 200 范围内</block>
@@ -3143,4 +3142,5 @@
   <block id="d5d195efeafde24a6a22effd3dd39339" category="list-text">基于凭据：您可以使用文件系统的 `fsxadmin` 用户或为 SVM 配置的 `vsadmin` 用户。</block>
   <block id="be5736bb27c63c0a404a25abaa033c45" category="admonition">我们强烈建议使用`vsadmin` user而非`fsxadmin`来配置后端。Astra Trident 将使用此用户名和密码与 FSX 文件系统进行通信。</block>
   <block id="3f44baef815aed01560d6764fea49ebc" category="cell">用于CVS卷的GCP网络</block>
+  <block id="66896c99fb06e0b6c86498b249f8217a" category="cell">如果请求的卷大小超过此值、则配置失败。</block>
 </blocks>

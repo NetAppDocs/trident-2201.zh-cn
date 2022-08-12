@@ -84,7 +84,7 @@ summary: 了解如何在您的 Astra Trident 安装中创建和使用 ONTAP SAN 
 | `limitAggregateUsage` | 如果使用量超过此百分比，则配置失败。* 不适用于适用于 ONTAP 的 Amazon FSx * | " （默认情况下不强制实施） 
 
 
-| `limitVolumeSize` | 如果经济型驱动程序请求的卷大小超过此值，则配置失败。 | " （默认情况下不强制实施） 
+| `limitVolumeSize` | 如果请求的卷大小超过此值、则配置失败。 | " （默认情况下不强制实施） 
 
 
 | `lunsPerFlexvol` | 每个 FlexVol 的最大 LUN 数，必须在 50 ， 200 范围内 | 100 
