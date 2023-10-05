@@ -972,7 +972,6 @@
   <block id="43752d169c5729fffa3a6557a0978cb8" category="list-text">具有 `netappcloudvolumes.admin` 角色的 Google Cloud 服务帐户</block>
   <block id="5d6ade9bdfebc79abf4c55e55a2c9941" category="list-text">CVS 服务帐户的 API 密钥文件</block>
   <block id="7d0ee86ffc673e47ce20265e1e21317f" category="inline-link">GCP 上的 CVS 服务类型</block>
-  <block id="1f57356f89e79e6730290eddcf7b84ee" category="paragraph">Astra Trident 现在支持使用默认值的较小卷<block ref="fc2935a8a76e337f6e814f65964a47b6" category="inline-link-rx"></block>。对于使用 `storageClass=software` 创建的后端，卷的最小配置大小将为 300 GiB 。CVS 目前在 " 受控可用性 " 下提供此功能，不提供技术支持。用户必须注册才能访问低于 1TiB 的卷<block ref="daab940ca038632df7b3bcdb2ce67b4b" category="inline-link-rx"></block>。NetApp 建议客户对非生产工作负载使用 1 TiB 以下的卷。</block>
   <block id="adf38902d2794fb5eb0ede6324a90db7" category="admonition">使用默认 CVS 服务类型（ `storageClass=software` ）部署后端时，用户必须获得 GCP 上有关项目编号和项目 ID 的 1 TiB 卷功能的访问权限。这对于 Astra Trident 配置低于 1TiB 的卷是必需的。否则，对于小于 600 GiB 的 PVC ，卷创建将失败。使用访问低于 1TiB 的卷<block ref="d5347d47b24e3303f1c7b0ae61e08dc7" category="inline-link-rx"></block>。</block>
   <block id="3e6d0b5d82e6a07b21f37953b4f07f2b" category="paragraph">由 Astra Trident 为默认 CVS 服务级别创建的卷将按以下方式进行配置：</block>
   <block id="b0f9c06798383f1aa62530b497a530f7" category="list-text">小于 300 GiB 的 PVC 将导致 Astra Trident 创建 300 GiB CVS 卷。</block>
@@ -1449,7 +1448,6 @@
   <block id="d356d628089d439d75e3f85564372658" category="list-text">使用 tridentctl 安装</block>
   <block id="87248f7afe198418bdbedd919695631e" category="list-text">您还可以通过在后端定义中包含 `debugTraceFlags` 来获取每个后端的调试日志。例如，包括 `debugTraceFlags ： ｛ "api" ： true ， "method " ： true ， ｝` 以获取 Trident 日志中的 API 调用和方法遍历。现有后端可以已配置 `debugTraceFlags` 并配置 `tridentctl 后端更新` 。</block>
   <block id="6cc37a0664d7f97f87d34eadef23dbad" category="list-text">使用 RedHat CoreOS 时，请确保在工作节点上启用了 `iscsid` 并默认启动。可以使用 OpenShift MachineConfigs 或修改点燃模板来完成此操作。</block>
-  <block id="4582245538a41243a95713a7d0c21b64" category="list-text">使用 Trident 时可能会遇到的一个常见问题<block ref="4568986ef6397d7c901269fc0e190ede" category="inline-link-rx"></block> 租户和客户端密码来自权限不足的应用程序注册。有关 Trident 要求的完整列表，请参见 <block ref="c09112d17e34405b7a5c3d246f91583f" category="inline-link-macro-rx"></block> Configuration</block>
   <block id="7f0ecdfa510b31b01d331c2760643b83" category="list-text">如果在将 PV 挂载到容器时出现问题，请确保 `rpcbind` 已安装并正在运行。对主机操作系统使用所需的软件包管理器，并检查 `rpcbind` 是否正在运行。您可以通过运行 `systemctl status rpcbind` 或其等效项来检查 `rpcbind` 服务的状态。</block>
   <block id="78aeadc89feb4cf244398a7d35a0d656" category="list-text">如果 Trident 后端报告其处于 `Failed` 状态，尽管之前已正常工作，但这可能是由于更改了与后端关联的 SVM/ 管理员凭据所致。使用 `tridentctl update backend` 更新后端信息或放弃 Trident Pod 将修复此问题描述。</block>
   <block id="f5d517b06fc0b1af5d599776e2f6f1d6" category="inline-link">本博客</block>
@@ -2253,12 +2251,10 @@
   <block id="d06b5297af318d2581021098f6b0d44d" category="section-title">升级命名空间范围的操作员安装</block>
   <block id="ddfa75d059a999aedec16392aae03bc4" category="paragraph">要从使用命名空间范围的运算符（版本 20.07 至 20.10 ）安装的 Astra Trident 实例进行升级，需要遵循以下步骤：</block>
   <block id="edf5c542759186ded2c7eeaae6b340a5" category="list-text">验证现有 Trident 安装的状态。要执行此操作，请检查 `TridentProvider` 的 * 状态 * 。状态应为 `installed` 。</block>
-  <block id="f14a1d8e56a0cbd2826edd38778371f7" category="admonition">如果状态显示 `Updating` ，请确保先解决此问题，然后再继续。有关可能的状态值列表，请参见<block ref="6aefd1c9ce8e43313a8c7c92e2fac4f3" category="inline-link-rx"></block>。</block>
   <block id="683d018a2f7c70469fd74ba0eeae2a79" category="list-text">使用 Trident 安装程序随附的清单创建 `TridentOrchestrator` CRD 。</block>
   <block id="ede3d39a1c5211985b126b3f166cf601" category="inline-link">Trident 存储库</block>
   <block id="af39f09efb6e7b7133433dff92d0fffe" category="list-text">使用其清单删除命名空间范围的运算符。要完成此步骤，您需要使用 `bundle.yaml` 文件来部署命名空间范围的运算符。您可以从获取 `bundle.yaml`<block ref="1403b813895a8a78c447fca96240f2ac" category="inline-link-rx"></block>。请确保使用相应的分支。</block>
   <block id="5451265740f1553dff7af7814faa5277" category="inline-link-macro">参数列表</block>
-  <block id="8afea862003d4f613fcffecc022fb20c" category="admonition">在删除命名空间范围的运算符后以及安装集群范围的运算符之前，您应对 Trident 安装参数进行必要的更改（例如，更改 `tridentImage` ， `autosupportImage` ，私有映像存储库以及提供 `imagePullSecs` 的值）。有关可更新的参数的完整列表，请参见 <block ref="e5ef433069537d0999d9cf3f906affdb" category="inline-link-macro-rx"></block>。</block>
   <block id="5fbede7820945c99130183fd2fd0f4b3" category="paragraph">此时，将删除 `trident 操作符 -xxxxxx-xxxxx` Pod 。</block>
   <block id="86463d362af5835ff8c3fd6587fbd24f" category="list-text">（可选）如果需要修改安装参数，请更新 `TridentProvider` 规范。这些更改可能包括修改私有映像注册表以从中提取容器映像，启用调试日志或指定映像提取密钥等。</block>
   <block id="df486b34cec5fdfba24de79fe6b388d4" category="list-text">安装集群范围的运算符。</block>
@@ -2304,7 +2300,6 @@
   <block id="8d66ed6671344ec6017707c38250329c" category="admonition">对于 19.04 及更早版本的所有升级，都需要将 Astra Trident 的元数据从其自身的 `etcd` 迁移到 CRD 对象。请务必查看此版本的文档，了解升级的工作原理。</block>
   <block id="33966eba1ed0cde6afda5a97ffaffb09" category="inline-link">安全上下文</block>
   <block id="ceb268093ddd5aa9df1769eda5d1c8cd" category="inline-link">输入示例：</block>
-  <block id="1ca02e26ff81cefae18a0a8d994ca94a" category="admonition">升级时，请务必提供 `parameter.FSType` in `StorageClasses` used by Astra Trident 。您可以删除并重新创建 `StorageClasses` ，而不会中断已有卷。这是执行的一项 * 要求 *<block ref="cafe4c6014d8c45aaac70e49318f1a2a" category="inline-link-rx"></block> SAN 卷。。<block ref="25daec0b57549a6ad43dbc62a9e717ca" category="inline-link-rx"></block> 目录包含示例，例如<block ref="d308f4d12b21bf269d64643e1eceeeb2" category="inline-link-rx"></block> 和<block ref="b6ff3ec2ac914a047085c08d5843e316" category="inline-link-rx"></block>。有关详细信息，请参见 <block ref="139a59f2208174d2bf825b80dc580275" category="inline-link-macro-rx"></block>。</block>
   <block id="17cfb8bd7f378fa26b63ee73d467cb82" category="section-title">我应选择哪种升级路径？</block>
   <block id="46940159293e259bcf0bb4df75448100" category="paragraph">您可以使用以下路径之一进行升级：</block>
   <block id="dc1a9a8ad35cc8aa946e0a2e3f959e2b" category="list-text">使用 Trident 运算符。</block>
@@ -2861,7 +2856,6 @@
   <block id="abbdd4298bb3e525fd172b2bbe5a451c" category="section-title">如何为在 ONTAP NAS 上配置的卷设置 Unix 权限？</block>
   <block id="a535e502931280dfaa539ecd1cbdfc0c" category="paragraph">您可以通过在后端定义文件中设置参数来对 Astra Trident 配置的卷设置 Unix 权限。</block>
   <block id="094ef47e6456d60b656401b0f2bbfcbd" category="section-title">如何在配置卷时配置一组显式 ONTAP NFS 挂载选项？</block>
-  <block id="84ae0d345d4b749efbbc8103b0770e68" category="paragraph">默认情况下， Astra Trident 不会使用 Kubernetes 将挂载选项设置为任何值。要在 Kubernetes 存储类中指定挂载选项，请按照给定示例进行操作<block ref="cd55c45fce745b7032050d3a7a9ec326" category="inline-link-rx"></block>。</block>
   <block id="ae6bc3659bb0be0a7d9f98a63775b7c2" category="section-title">如何将配置的卷设置为特定导出策略？</block>
   <block id="700a2008fea63d02c24b85f2f75d357e" category="paragraph">要允许相应的主机访问卷，请使用后端定义文件中配置的 `exportPolicy` 参数。</block>
   <block id="9d5813dee71bcbf3d3a03c62354c3e55" category="section-title">如何使用 ONTAP 通过 Astra Trident 设置卷加密？</block>
@@ -3008,7 +3002,6 @@
   <block id="c949166d6970748c0094c800daa3324a" category="sidebar">管理 Astra Trident</block>
   <block id="63d5049791d9d79d86e9a108b0a999ca" category="sidebar">参考</block>
   <block id="324fb1352ffffb105d10013810c42896" category="sidebar">Kubernetes 和 Astra Trident 对象</block>
-  <block id="086e6c16e3fe8e13c336612ef636aa02" category="sidebar">Astra Trident</block>
   <block id="80fa8f92dc0ebf122ed30a4a88fda343" category="doc">Astra Trident 22.01 文档</block>
   <block id="5a333b18a215ecfd4457ba0e1732654b" category="section-title">Trident是否可以在配置了负载共享镜像的SVM上配置卷？</block>
   <block id="0e7629426b9d7596800cd5d72f558a7f" category="paragraph">可以为通过NFS提供数据的SVM的根卷创建负载共享镜像。ONTAP 会自动为Trident创建的卷更新负载共享镜像。这可能会导致卷挂载延迟。使用Trident创建多个卷时、配置卷取决于ONTAP 更新负载共享镜像。</block>
@@ -3105,4 +3098,11 @@
   <block id="dd38f906b37d412de7d1c1dcf4cbf31c" category="paragraph"><block ref="dd38f906b37d412de7d1c1dcf4cbf31c" category="inline-link-macro-rx"></block></block>
   <block id="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-macro"><block ref="8acb58cbd50ef1b468a020ee0bd351d3" category="inline-link-rx"></block></block>
   <block id="2352c4e1f4d0024ade0869e00e6243f4" category="paragraph"><block ref="2352c4e1f4d0024ade0869e00e6243f4" category="inline-link-macro-rx"></block></block>
+  <block id="db119bf2f5afe50fb07cda934d0a0910" category="admonition">如果状态显示<block ref="6909beea5b50605780e3411f879fe916" prefix=" " category="inline-code"></block>、请确保先解决此问题、然后再继续。有关可能的状态值列表，请参见 <block ref="f3075589264229c97b562eda3fd87b58" category="inline-link-macro-rx"></block>。</block>
+  <block id="ededd8902bec1cd65fbb8766bfb21070" category="admonition">您应对Trident安装参数进行必要的更改(例如、更改的值<block ref="d771848c80f96e5954a8658655cf79d7" prefix=" " category="inline-code"></block>，<block ref="7ecc687ea7566f05fd13fde7be607bfc" prefix=" " category="inline-code"></block>、私有映像存储库和提供<block ref="0d9b54b29da54379cca6b8782b9faae5" prefix=" " category="inline-code"></block>)。有关可更新的参数的完整列表，请参见 <block ref="a0446138542e129426b1f6ff199acfa3" category="inline-link-macro-rx"></block>。</block>
+  <block id="e8fe26bf5b53940e7e52b3f166871cc3" category="admonition">升级时、请务必提供<block ref="f6e7f85d8aee15940665bf722f7afac2" prefix=" " category="inline-code"></block> 在中<block ref="f652904c3bfb48fb25a0a75f485f0ff6" prefix=" " category="inline-code"></block> 由Astra Trident使用。您可以删除并重新创建<block ref="f652904c3bfb48fb25a0a75f485f0ff6" prefix=" " category="inline-code"></block> 而不会中断已有卷。这是执行的一项 * 要求 *<block ref="cafe4c6014d8c45aaac70e49318f1a2a" category="inline-link-rx"></block> SAN 卷。。<block ref="25daec0b57549a6ad43dbc62a9e717ca" category="inline-link-rx"></block> 目录包含示例，例如<block ref="0ce20df6bd6dcd4e1d745bdf09932b86" category="inline-link-rx"></block><block ref="9abb8c7777ddb413820ee07d5d93aa4a" prefix="[" category="inline-code"></block>^)和<block ref="bab3b119449dc236bcd556fb4b3647ac" category="inline-link-rx"></block><block ref="69ae2d9a6d831af7488e53fec053b77e" prefix="[" category="inline-code"></block>^。
+有关详细信息，请参见 <block ref="139a59f2208174d2bf825b80dc580275" category="inline-link-macro-rx"></block>。</block>
+  <block id="1b832ef852805a4e825ca6c6ec5295f7" category="paragraph">Astra Trident 现在支持使用默认值的较小卷<block ref="e9e5fc0bc02a6a1b02d344d2f4e0e88a" category="inline-link-rx"></block>。用于使用创建的后端<block ref="c7237d9128f41df56bf2ba9c87fd26e8" prefix=" " category="inline-code"></block>下、卷的最小配置大小将为300 GiB。CVS 目前在 " 受控可用性 " 下提供此功能，不提供技术支持。用户必须注册才能访问低于 1TiB 的卷<block ref="daab940ca038632df7b3bcdb2ce67b4b" category="inline-link-rx"></block>。NetApp 建议客户对非生产工作负载使用 1 TiB 以下的卷。</block>
+  <block id="419c95e5a9e44d427f99debdcf0550c7" category="list-text">使用 Trident 时可能会遇到的一个常见问题<block ref="4568986ef6397d7c901269fc0e190ede" category="inline-link-rx"></block> 租户和客户端密码来自权限不足的应用程序注册。有关 Trident 要求的完整列表，请参见 <block ref="cd38c25b6345abc8733d2ef72739cd97" category="inline-link-macro-rx"></block> Configuration</block>
+  <block id="3e9e53a916f99df7d6286c52e3b7a9d5" category="paragraph">默认情况下， Astra Trident 不会使用 Kubernetes 将挂载选项设置为任何值。要在 Kubernetes 存储类中指定挂载选项，请按照给定示例进行操作<block ref="fe27d7e6fa26e46ae96377664e7dbdff" category="inline-link-rx"></block>。</block>
 </blocks>
