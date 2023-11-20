@@ -88,7 +88,7 @@ Helm 图表中的 `values.yaml` 文件提供了键及其默认值的列表。
 
 === 第 1 步：确定 Kubernetes 集群的资格
 
-首先，您需要登录到 Linux 主机并验证它是否正在管理 _b工作 _ ， link:requirements.html["支持的 Kubernetes 集群"^] 您具有所需权限。
+首先，您需要登录到 Linux 主机并验证它是否正在管理 _b工作 _ ， link:../trident-get-started/requirements.html["支持的 Kubernetes 集群"^] 您具有所需权限。
 
 
 NOTE: 使用 OpenShift 时，在以下所有示例中使用 `oc` 而不是 `kubectl` ，并首先以 * 系统： admin* 的身份运行 `oc login -u system ： admin` 或 `oc login -u Kube-admin` 进行登录。

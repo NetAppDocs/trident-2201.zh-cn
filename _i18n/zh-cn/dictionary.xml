@@ -1757,7 +1757,6 @@
   <block id="1294c366742670bd28702f7cafffc981" category="paragraph">`Helm list` 显示有关安装的详细信息，例如名称，命名空间，图表，状态， 应用程序版本，修订版号等。</block>
   <block id="3470548c691fb90c7ea544350c2c7052" category="section-title">手动部署 Trident 操作员</block>
   <block id="8f3f1888bbf317edb14f0f439c7d142f" category="paragraph">执行列出的步骤以手动部署 Trident 操作员。</block>
-  <block id="619cde7335e798082dc3bfdbe30708a0" category="paragraph">首先，您需要登录到 Linux 主机并验证它是否正在管理 _b工作 _ ， <block ref="ac355729d1ddc95a290738ca862fed08" category="inline-link-macro-rx"></block> 您具有所需权限。</block>
   <block id="e420b75ec3bc014e3f69c43b2383768b" category="admonition">使用 OpenShift 时，在以下所有示例中使用 `oc` 而不是 `kubectl` ，并首先以 * 系统： admin* 的身份运行 `oc login -u system ： admin` 或 `oc login -u Kube-admin` 进行登录。</block>
   <block id="3b4c548466953befff1962ac2426cb8e" category="paragraph">要查看您的 Kubernetes 版本是否高于 1.17 ，请运行以下命令：</block>
   <block id="b51ca564a2763a36e8eff661a1e45814" category="section-title">第 2 步：下载并设置操作员</block>
@@ -2238,7 +2237,6 @@
   <block id="ba45a58fb6371fc5a91fb8a5d399becd" category="list-text">如果您已卸载 CSI Trident ，并且安装中的元数据仍然存在，则可以使用操作员进行升级。</block>
   <block id="33deedceb6eaeb2f124b7ce830e212a8" category="list-text">在给定 Kubernetes 集群中的所有命名空间中，只应安装一个 Astra Trident 。</block>
   <block id="f6c44c912e06b8221085c219600c6387" category="inline-link-macro">1.17 及更高版本</block>
-  <block id="0805928cc4c4b801e682a6cd2006e692" category="list-text">您应使用运行的 Kubernetes 集群 <block ref="b1e96583006584730c41f3baa3725240" category="inline-link-macro-rx"></block>。</block>
   <block id="093e1971a4b17fce7e3e4d94854a46ba" category="list-text">如果存在字母快照 CRD ，则应使用 `tridentctl obliviate alpha-snapshot-crd` 将其删除。此操作将删除 alpha snapshot 规范的 CRD 。有关应删除 / 迁移的现有快照，请参见<block ref="ddf3864130a7be37c683b2fe21303201" category="inline-link-rx"></block>。</block>
   <block id="199ed8c975e8bb544d18428ba17adbc3" category="inline-link">GitHub 上的问题描述详细信息</block>
   <block id="398b69b685d2969c9e5d2f8cfbff3972" category="admonition">在 OpenShift 容器平台上使用操作符升级 Trident 时，应升级到 Trident 21.01.1 或更高版本。21.01.0 版发布的 Trident 运算符包含一个已知的问题描述，该 已在 21.01.1 中修复。有关详细信息，请参见<block ref="bcebcdd21adcbb3d7c640d63a711c6fb" category="inline-link-rx"></block>。</block>
@@ -2298,8 +2296,6 @@
   <block id="6ed2af44865aa9f6dddcebd57d996cf1" category="list-text">首次从 18.07 升级到 19.07 。有关升级的具体说明，请参见相应版本的文档。</block>
   <block id="ff115c7087db60c699cccdb21f39ea66" category="list-text">然后从 19.07 升级到 20.07 。</block>
   <block id="8d66ed6671344ec6017707c38250329c" category="admonition">对于 19.04 及更早版本的所有升级，都需要将 Astra Trident 的元数据从其自身的 `etcd` 迁移到 CRD 对象。请务必查看此版本的文档，了解升级的工作原理。</block>
-  <block id="33966eba1ed0cde6afda5a97ffaffb09" category="inline-link">安全上下文</block>
-  <block id="ceb268093ddd5aa9df1769eda5d1c8cd" category="inline-link">输入示例：</block>
   <block id="17cfb8bd7f378fa26b63ee73d467cb82" category="section-title">我应选择哪种升级路径？</block>
   <block id="46940159293e259bcf0bb4df75448100" category="paragraph">您可以使用以下路径之一进行升级：</block>
   <block id="dc1a9a8ad35cc8aa946e0a2e3f959e2b" category="list-text">使用 Trident 运算符。</block>
@@ -2775,7 +2771,6 @@
   <block id="0a7e87df44869b8d60a83f35d1e2747b" category="section-title">在 Kubernetes 集群上安装和使用 Astra Trident</block>
   <block id="6a3ad0d68dcfe0164611dadb7f7656f9" category="paragraph">Astra Trident 不再需要 `etcd` 。它使用 CRD 来保持状态。</block>
   <block id="bde6cb03741f92107c63aeebe62d3278" category="section-title">Astra Trident 是否支持从专用注册表脱机安装？</block>
-  <block id="45b09f7cb3dcbe0274eef2b3fce46bea" category="paragraph">可以， Astra Trident 可以脱机安装。请参见 <block ref="4a2b27d6d4bc3dd7ae85bfd131d50753" category="inline-link-macro-rx"></block>。</block>
   <block id="1c51806b370d428d5779dbcacd940174" category="section-title">是否可以远程安装 Astra Trident ？</block>
   <block id="bf858450c271da75a3df3a15ca761330" category="paragraph">是的。Astra Trident 18.10 及更高版本支持从 `kubectl` 访问集群的任何计算机远程安装。验证 `kubectl` 访问后（例如，从远程计算机启动 `kubectl get nodes` 命令进行验证），请按照安装说明进行操作。</block>
   <block id="12694c2de4575e39a6f7e81d55e35de9" category="section-title">是否可以使用 Astra Trident 配置高可用性？</block>
@@ -2783,9 +2778,7 @@
   <block id="1656e4b34abdb6d497b40cac65366767" category="section-title">Astra Trident 是否需要访问 Kube-system 命名空间？</block>
   <block id="6f67e1edfd4aa5b0e695528a9c7d8898" category="paragraph">Astra Trident 从 Kubernetes API 服务器读取数据，以确定应用程序何时请求新的 PVC ，因此需要访问 Kube-system 。</block>
   <block id="16cdb35003b5bcf0f30556e0bc477511" category="section-title">Astra Trident 使用哪些角色和特权？</block>
-  <block id="6efc6545e459b8bb96815706b41a84cd" category="paragraph">Trident 安装程序会创建一个 Kubernetes ClusterRole ，该 ClusterRole 可对集群的 PersistentVolume ， PersistentVolumeClaim ， StorageClass 和 Kubernetes 集群的 Secret 资源进行特定访问。请参见 <block ref="7a68296d6f600eac17d317743bea0050" category="inline-link-macro-rx"></block>。</block>
   <block id="8ff39a39871cc30228035bc0580a6af4" category="section-title">是否可以在本地生成 Astra Trident 用于安装的准确清单文件？</block>
-  <block id="0f43ba8a9cfc14b033c2c652f53bfcb9" category="paragraph">如果需要，您可以在本地生成和修改 Astra Trident 用于安装的确切清单文件。请参见 <block ref="7a68296d6f600eac17d317743bea0050" category="inline-link-macro-rx"></block>。</block>
   <block id="e6af67b71bd46d7588b50f28e1414f9b" category="section-title">是否可以为两个单独的 Kubernetes 集群的两个单独的 Astra Trident 实例共享同一个 ONTAP 后端 SVM ？</block>
   <block id="7bbf9b47e035f0f9bb7c46098e78fb4d" category="paragraph">尽管不建议这样做，但您可以对两个 Astra Trident 实例使用同一个后端 SVM 。在安装期间为每个实例指定唯一的卷名称和 / 或在 `setup/backend.json` 文件中指定唯一的 `StoragePrefix` 参数。这是为了确保不会对这两个实例使用相同的 FlexVol 。</block>
   <block id="9840a5bb6278469ed550bcdcc92c29c5" category="section-title">是否可以在 ContainerLinux （以前称为 CoreOS ）下安装 Astra Trident ？</block>
@@ -2823,7 +2816,6 @@
   <block id="ce44cbbc54839f39b351c091b0e3caa5" category="paragraph">NetApp 支持将 Astra Trident 从一个主要版本升级到下一个直接主要版本。您可以从 18.xx 升级到 19.xx ，从 19.xx 升级到 20.xx 等。在生产部署之前，您应在实验室中测试升级。</block>
   <block id="0399b9e6348e554937a4d65efc97a1b8" category="section-title">是否可以将 Trident 降级到先前版本？</block>
   <block id="d307563c01953bd90a41ddd049f96d51" category="inline-link-macro">有关降级的章节</block>
-  <block id="72fec731c958562fd09df08eef5fbb89" category="paragraph">如果要降级，需要评估许多因素。请参见 <block ref="ea621a0de3f004c488ea799d0fd7e41d" category="inline-link-macro-rx"></block>。</block>
   <block id="ba9c59aa9d07b25e124dcf6ca88d689a" category="section-title">管理后端和卷</block>
   <block id="ffe72215dff9a93d62ee68905212025e" category="section-title">是否需要在 ONTAP 后端定义文件中同时定义管理和数据 LIF ？</block>
   <block id="3a35d35cc18d96684d78b36a81422e0c" category="paragraph">NetApp 建议在后端定义文件中同时包含这两者。但是，只有管理 LIF 是必需的。</block>
@@ -3100,9 +3092,15 @@
   <block id="2352c4e1f4d0024ade0869e00e6243f4" category="paragraph"><block ref="2352c4e1f4d0024ade0869e00e6243f4" category="inline-link-macro-rx"></block></block>
   <block id="db119bf2f5afe50fb07cda934d0a0910" category="admonition">如果状态显示<block ref="6909beea5b50605780e3411f879fe916" prefix=" " category="inline-code"></block>、请确保先解决此问题、然后再继续。有关可能的状态值列表，请参见 <block ref="f3075589264229c97b562eda3fd87b58" category="inline-link-macro-rx"></block>。</block>
   <block id="ededd8902bec1cd65fbb8766bfb21070" category="admonition">您应对Trident安装参数进行必要的更改(例如、更改的值<block ref="d771848c80f96e5954a8658655cf79d7" prefix=" " category="inline-code"></block>，<block ref="7ecc687ea7566f05fd13fde7be607bfc" prefix=" " category="inline-code"></block>、私有映像存储库和提供<block ref="0d9b54b29da54379cca6b8782b9faae5" prefix=" " category="inline-code"></block>)。有关可更新的参数的完整列表，请参见 <block ref="a0446138542e129426b1f6ff199acfa3" category="inline-link-macro-rx"></block>。</block>
-  <block id="e8fe26bf5b53940e7e52b3f166871cc3" category="admonition">升级时、请务必提供<block ref="f6e7f85d8aee15940665bf722f7afac2" prefix=" " category="inline-code"></block> 在中<block ref="f652904c3bfb48fb25a0a75f485f0ff6" prefix=" " category="inline-code"></block> 由Astra Trident使用。您可以删除并重新创建<block ref="f652904c3bfb48fb25a0a75f485f0ff6" prefix=" " category="inline-code"></block> 而不会中断已有卷。这是执行的一项 * 要求 *<block ref="cafe4c6014d8c45aaac70e49318f1a2a" category="inline-link-rx"></block> SAN 卷。。<block ref="25daec0b57549a6ad43dbc62a9e717ca" category="inline-link-rx"></block> 目录包含示例，例如<block ref="0ce20df6bd6dcd4e1d745bdf09932b86" category="inline-link-rx"></block><block ref="9abb8c7777ddb413820ee07d5d93aa4a" prefix="[" category="inline-code"></block>^)和<block ref="bab3b119449dc236bcd556fb4b3647ac" category="inline-link-rx"></block><block ref="69ae2d9a6d831af7488e53fec053b77e" prefix="[" category="inline-code"></block>^。
-有关详细信息，请参见 <block ref="139a59f2208174d2bf825b80dc580275" category="inline-link-macro-rx"></block>。</block>
   <block id="1b832ef852805a4e825ca6c6ec5295f7" category="paragraph">Astra Trident 现在支持使用默认值的较小卷<block ref="e9e5fc0bc02a6a1b02d344d2f4e0e88a" category="inline-link-rx"></block>。用于使用创建的后端<block ref="c7237d9128f41df56bf2ba9c87fd26e8" prefix=" " category="inline-code"></block>下、卷的最小配置大小将为300 GiB。CVS 目前在 " 受控可用性 " 下提供此功能，不提供技术支持。用户必须注册才能访问低于 1TiB 的卷<block ref="daab940ca038632df7b3bcdb2ce67b4b" category="inline-link-rx"></block>。NetApp 建议客户对非生产工作负载使用 1 TiB 以下的卷。</block>
-  <block id="419c95e5a9e44d427f99debdcf0550c7" category="list-text">使用 Trident 时可能会遇到的一个常见问题<block ref="4568986ef6397d7c901269fc0e190ede" category="inline-link-rx"></block> 租户和客户端密码来自权限不足的应用程序注册。有关 Trident 要求的完整列表，请参见 <block ref="cd38c25b6345abc8733d2ef72739cd97" category="inline-link-macro-rx"></block> Configuration</block>
   <block id="3e9e53a916f99df7d6286c52e3b7a9d5" category="paragraph">默认情况下， Astra Trident 不会使用 Kubernetes 将挂载选项设置为任何值。要在 Kubernetes 存储类中指定挂载选项，请按照给定示例进行操作<block ref="fe27d7e6fa26e46ae96377664e7dbdff" category="inline-link-rx"></block>。</block>
+  <block id="11e8ef6c378ba835810fad2cc65ce5b5" category="paragraph">可以， Astra Trident 可以脱机安装。请参见 <block ref="8b57b68a0e3f8b19c1d735a44663ac45" category="inline-link-macro-rx"></block>。</block>
+  <block id="adeea0b918e5e67a7166a2c204249e64" category="paragraph">Trident 安装程序会创建一个 Kubernetes ClusterRole ，该 ClusterRole 可对集群的 PersistentVolume ， PersistentVolumeClaim ， StorageClass 和 Kubernetes 集群的 Secret 资源进行特定访问。请参见 <block ref="52b05a1acf0f0f7fbbce1ec1469188fc" category="inline-link-macro-rx"></block>。</block>
+  <block id="5b72286a318e05b9dba4ea3ab28f1892" category="paragraph">如果需要，您可以在本地生成和修改 Astra Trident 用于安装的确切清单文件。请参见 <block ref="52b05a1acf0f0f7fbbce1ec1469188fc" category="inline-link-macro-rx"></block>。</block>
+  <block id="85460df1250aafcb2de34171c5aeaf3e" category="paragraph">如果要降级，需要评估许多因素。请参见 <block ref="e329ea23909a383c742caf5bc0299d71" category="inline-link-macro-rx"></block>。</block>
+  <block id="5e74892a3fc09257dc0257ff5247631b" category="list-text">使用 Trident 时可能会遇到的一个常见问题<block ref="4568986ef6397d7c901269fc0e190ede" category="inline-link-rx"></block> 租户和客户端密码来自权限不足的应用程序注册。有关 Trident 要求的完整列表，请参见 <block ref="afedf4ee56554ea6e6b54e6aa206680c" category="inline-link-macro-rx"></block> Configuration</block>
+  <block id="f377a3231e9079a5501eb1a2a53aae0c" category="paragraph">首先，您需要登录到 Linux 主机并验证它是否正在管理 _b工作 _ ， <block ref="f546aa86570a808d23361d7f4e2a08c3" category="inline-link-macro-rx"></block> 您具有所需权限。</block>
+  <block id="f5ad5d8863591c7f04e8a6747b6565a0" category="list-text">您应使用运行的 Kubernetes 集群  <block ref="ac77c4f66d07e354303b5ed7c917ba28" category="inline-link-macro-rx"></block>。</block>
+  <block id="da66575a36601082676fb1d5422feba6" category="admonition">升级时、请务必提供<block ref="f6e7f85d8aee15940665bf722f7afac2" prefix=" " category="inline-code"></block> 在中<block ref="f652904c3bfb48fb25a0a75f485f0ff6" prefix=" " category="inline-code"></block> 由Astra Trident使用。您可以删除并重新创建<block ref="f652904c3bfb48fb25a0a75f485f0ff6" prefix=" " category="inline-code"></block> 而不会中断已有卷。这是对SAN卷强制实施https://kubernetes.io/docs/tasks/configure-pod-container/security-context/[security环境^的**要求。https://github.com/NetApp/trident/tree/master/trident-installer/sample-input[sample输入^]目录包含https://github.com/NetApp/trident/blob/master/trident-installer/sample-input/storage-class-samples/storage-class-basic.yaml.templ等示例<block ref="9abb8c7777ddb413820ee07d5d93aa4a" prefix="[" category="inline-code"></block>^)和链接：https://github.com/NetApp/trident/blob/master/trident-installer/sample-input/storage-class-samples/storage-class-bronze-default.yaml<block ref="69ae2d9a6d831af7488e53fec053b77e" prefix="[" category="inline-code"></block>^。
+有关详细信息，请参见 <block ref="139a59f2208174d2bf825b80dc580275" category="inline-link-macro-rx"></block>。</block>
 </blocks>
