@@ -20,10 +20,7 @@ WARNING: 安装程序 zip 文件中提供的 `tridentctl` 二进制文件是经�
 
 == 22.01.1中的新增功能
 
-NetApp 不断改进和完善其产品和服务。以下是 Astra Trident 中的一些最新功能。对于先前版本，请参见 https://docs.netapp.com/us-en/trident/earlier-versions.html["文档的早期版本"]。
-
-
-IMPORTANT: 如果要从先前的任何 Trident 版本升级并使用 Azure NetApp Files ，则 ``location`` config 参数现在是一个必填字段。
+NetApp 不断改进和完善其产品和服务。以下是 Astra Trident 中的一些最新功能。
 
 
 
